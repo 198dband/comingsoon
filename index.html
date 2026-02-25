@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>198D | Coming Soon</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="coming">
+    <div class="coming-inner">
+      <p class="eyebrow">198D cover band</p>
+      <div class="logo-stack">
+        <div class="halo" aria-hidden="true"></div>
+        <img class="logo" src="198D.jpg" alt="198D logo" />
+      </div>
+      <h1>Coming Soon</h1>
+      <p class="tagline">The full site is coming soon. Until then, check out our socials.</p>
+      <div class="socials" aria-label="198D socials">
+        <a class="social-link" href="YoutubeAutoPlayerNative/bin/Debug/net6.0-windows/publish/YoutubeAutoPlayerNative.exe.WebView2/EBWebView/Default/Service%20Worker/CacheStorage/379f1cbab5b08b6fc9e08681e42d8be311441c88/b79e77e5-ee44-4343-a492-089771ffc18f/index" target="_blank" rel="noreferrer">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.6 4.5 12 4.5 12 4.5s-5.6 0-7.5.6a3 3 0 0 0-2.1 2.1A31.2 31.2 0 0 0 1.8 12a31.2 31.2 0 0 0 .6 4.8 3 3 0 0 0 2.1 2.1c1.9.6 7.5.6 7.5.6s5.6 0 7.5-.6a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 22.2 12a31.2 31.2 0 0 0-.6-4.8z"/>
+              <path d="M10.2 15.4V8.6L15.8 12l-5.6 3.4z"/>
+            </svg>
+          </span>
+          <span>YouTube @198Dband</span>
+        </a>
+        <a class="social-link" href="https://www.instagram.com/198d.band" target="_blank" rel="noreferrer">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M16.5 3h-9A4.5 4.5 0 0 0 3 7.5v9A4.5 4.5 0 0 0 7.5 21h9a4.5 4.5 0 0 0 4.5-4.5v-9A4.5 4.5 0 0 0 16.5 3zm3 13.5a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9z"/>
+              <path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm0 7.8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              <circle cx="17.4" cy="6.6" r="1.2"/>
+            </svg>
+          </span>
+          <span class="social-handle">Instagram @198D.band</span>
+        </a>
+        <a class="social-link" href="mailto:198Dband@gmail.com">
+          <span class="social-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M4.5 6A2.5 2.5 0 0 0 2 8.5v7A2.5 2.5 0 0 0 4.5 18h15a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 19.5 6h-15zm0 1.5h15a1 1 0 0 1 .6.2L12 12.7 3.9 7.7a1 1 0 0 1 .6-.2zm15 9h-15a1 1 0 0 1-1-1v-6.1l7.8 4.8a1 1 0 0 0 1.1 0l7.8-4.8v6.1a1 1 0 0 1-1 1z"/>
+            </svg>
+          </span>
+          <span class="social-handle">Contact us 198Dband@gmail.com</span>
+        </a>
+      </div>
+      <section class="request" aria-label="Song request feedback">
+        <h2>Song Request</h2>
+        <p class="request-copy">Drop a request and we will add it to the list for the next show.</p>
+        <form class="request-form" id="song-request" novalidate>
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Artist</span>
+            <input type="text" name="artist" required />
+          </label>
+          <label>
+            <span>Song</span>
+            <input type="text" name="song" required />
+          </label>
+          <button type="submit">Send Request</button>
+          <p class="form-note" id="request-note" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const form = document.getElementById("song-request");
+      const note = document.getElementById("request-note");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        note.textContent = "";
+
+        const formData = new FormData(form);
+        const name = (formData.get("name") || "").toString().trim();
+        const artist = (formData.get("artist") || "").toString().trim();
+        const song = (formData.get("song") || "").toString().trim();
+        if (!name || !artist || !song) {
+          note.textContent = "Please fill out all fields before sending.";
+          return;
+        }
+
+        const subject = encodeURIComponent("198D Song Request");
+        const bodyLines = [
+          `Name: ${name}`,
+          `Artist: ${artist}`,
+          `Song: ${song}`,
+        ];
+        const body = encodeURIComponent(bodyLines.join("\n"));
+        window.location.href = `mailto:198dband@gmail.com?subject=${subject}&body=${body}`;
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>

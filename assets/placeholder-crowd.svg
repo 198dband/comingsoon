@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650" role="img" aria-label="Crowd placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1b1b1b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#bg)"/>
+  <rect x="90" y="90" width="720" height="470" rx="32" fill="#111111" stroke="#2a2a2a" stroke-width="2"/>
+  <g fill="#f5f1e6" fill-opacity="0.15">
+    <circle cx="180" cy="420" r="28"/>
+    <circle cx="260" cy="390" r="36"/>
+    <circle cx="360" cy="430" r="30"/>
+    <circle cx="460" cy="400" r="40"/>
+    <circle cx="570" cy="430" r="32"/>
+    <circle cx="680" cy="410" r="34"/>
+  </g>
+  <path d="M160 460 C 260 340, 420 340, 520 460 S 760 580, 820 470" fill="none" stroke="#ff4e1a" stroke-opacity="0.35" stroke-width="10"/>
+  <text x="140" y="310" fill="#f5f1e6" font-family="Arial, sans-serif" font-size="32" letter-spacing="4">CROWD MOMENT</text>
+</svg>

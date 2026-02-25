@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650" role="img" aria-label="Stage lights placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4e1a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffd27f" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#bg)"/>
+  <rect x="80" y="70" width="740" height="510" rx="36" fill="#0f0f0f" stroke="#2a2a2a" stroke-width="2"/>
+  <polygon points="120,120 420,120 240,480" fill="url(#beam)"/>
+  <polygon points="780,140 520,140 660,520" fill="url(#beam)"/>
+  <circle cx="220" cy="140" r="28" fill="#ffd27f" fill-opacity="0.6"/>
+  <circle cx="680" cy="160" r="28" fill="#ff4e1a" fill-opacity="0.6"/>
+  <text x="140" y="360" fill="#f5f1e6" font-family="Arial, sans-serif" font-size="32" letter-spacing="4">STAGE LIGHTS</text>
+</svg>
