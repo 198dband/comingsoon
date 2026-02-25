@@ -190,6 +190,10 @@ h2 {
   text-align: left;
 }
 
+.is-hidden {
+  display: none;
+}
+
 .request-copy {
   margin: 0.5rem 0 1.4rem;
   color: rgba(244, 240, 230, 0.78);
