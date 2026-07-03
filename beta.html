@@ -403,6 +403,51 @@
     .np-side.dim{ font-size: 13px }
     .np-flip{ font-size: 9px; padding: 5px 7px; letter-spacing: .08em }
   }
+
+  /* ═══ SIDE C — Mixtape Maker trigger ══════════════════════════════ */
+  .sidec-btn{
+    position: absolute;
+    top: 50%; right: 20px;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #F4EFE6;
+    background: linear-gradient(180deg, #FF3D2E, #C22A1F);
+    border: 1.5px solid rgba(244,239,230,.3);
+    border-radius: 3px;
+    padding: 7px 11px;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0,0,0,.4);
+    transition: transform .15s;
+  }
+  .sidec-btn:hover{ transform: translateY(-50%) translateY(-1px) }
+  .sidec-btn:active{ transform: translateY(-50%) translateY(1px) }
+  body[data-theme="light"] .sidec-btn{
+    background: linear-gradient(180deg, #FF2E72, #C21F52);
+  }
+  /* Shrink instead of hide — a narrow desktop window still needs a way to reach Side C
+     (the .mdeck mobile button only appears for real touch/mobile devices, not narrow windows). */
+  @media (max-width: 720px){
+    .sidec-btn{ right: 10px; font-size: 9px; padding: 5px 8px; letter-spacing: .08em }
+  }
+  @media (max-width: 480px){
+    /* Below this the .readout itself already overflows the viewport in forced-desktop
+       mode (a pre-existing layout limit, not something Side C introduces) — real phones
+       never hit this since they get .mdeck instead. Hide rather than stack on top of it. */
+    .sidec-btn{ display: none }
+  }
+
+  .sidec-btn-mobile{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    background: #FF3D2E; color: #F4EFE6;
+    border: 1.5px solid rgba(244,239,230,.3);
+    border-radius: 3px;
+    padding: 0 10px; min-height: 38px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 4px;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body data-theme="dark" class="view-desktop">
@@ -423,6 +468,8 @@
     <span class="np-side dim" id="np-other">Side A · Mall Era</span>
   </button>
 
+  <button class="sidec-btn" id="sideCBtn" type="button" aria-label="Open the Mixtape Maker — Side C">Side C ↗</button>
+
 </header>
 
 <!-- Mobile-only header: brand + segmented Side switch -->
@@ -432,6 +479,7 @@
       <b>1980<span class="md">D</span></b>
       <span class="msub">Seattle · Cover Band</span>
     </span>
+    <button class="sidec-btn-mobile" id="sideCBtnMobile" type="button" aria-label="Open the Mixtape Maker — Side C">Side C</button>
     <button class="to-desktop" id="toDesktop" type="button">Desktop&nbsp;↗</button>
   </div>
   <div class="mswitch" role="tablist" aria-label="Choose a side">
@@ -962,6 +1010,31 @@ document.addEventListener('DOMContentLoaded', async function() {
   })();
 </script>
 
-
+<!-- SIDE C — Mixtape Maker. Lazy-loaded: zero cost until a visitor clicks. -->
+<script>
+(function(){
+  var loaded = false, loading = false;
+  function openSideC(){
+    if(loaded){ if(window.__openMixtape) window.__openMixtape(); return; }
+    if(loading) return;
+    loading = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'mixtape.css';
+    document.head.appendChild(css);
+    var script = document.createElement('script');
+    script.src = 'mixtape.js';
+    script.onload = function(){
+      loaded = true; loading = false;
+      if(window.__openMixtape) window.__openMixtape();
+    };
+    document.body.appendChild(script);
+  }
+  var btn1 = document.getElementById('sideCBtn');
+  var btn2 = document.getElementById('sideCBtnMobile');
+  if(btn1) btn1.addEventListener('click', openSideC);
+  if(btn2) btn2.addEventListener('click', openSideC);
+})();
+</script>
 
 </body></html>
